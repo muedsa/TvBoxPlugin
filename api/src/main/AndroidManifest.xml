@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <application>
+        <!--插件API版本-->
+        <!--在载入时会检查宿主支持的最低插件API版本，必须大于等于才能使用-->
+        <meta-data
+            android:name="tv_box_plugin_api_version"
+            android:value="1" />
+    </application>
+
+</manifest>
