@@ -4,7 +4,8 @@ open class MediaCard(
     id: String,
     title: String,
     detailUrl: String,
-    val coverUrl: String,
+    val coverImageUrl: String,
+    val coverImageHttpHeaders: Map<String, String>? = null,
     val subTitle: String? = null,
 ) : MediaBase(
     id = id,
