@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <queries>
+        <package android:name="com.muedsa.tvbox"/>
+        <package android:name="com.muedsa.tvbox.debug"/>
+    </queries>
+
     <application>
         <meta-data
             android:name="tv_box_plugin_key"
