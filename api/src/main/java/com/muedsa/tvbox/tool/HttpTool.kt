@@ -9,7 +9,7 @@ import retrofit2.Retrofit
 const val ChromeUserAgent =
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Safari/537.36"
 
-fun createOkHttpClient(debug: Boolean): OkHttpClient =
+fun createOkHttpClient(debug: Boolean = false): OkHttpClient =
     OkHttpClient.Builder()
         .apply {
             if (debug) {
@@ -19,7 +19,7 @@ fun createOkHttpClient(debug: Boolean): OkHttpClient =
         }
         .build()
 
-fun <T> createJsonRetrofit(debug: Boolean, baseUrl: String, service: Class<T>): T {
+fun <T> createJsonRetrofit(baseUrl: String, service: Class<T>, debug: Boolean = false): T {
     return Retrofit.Builder()
         .baseUrl(baseUrl)
         .addConverterFactory(LenientJson.asConverterFactory("application/json".toMediaType()))
