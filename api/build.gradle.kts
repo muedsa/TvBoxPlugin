@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
@@ -30,4 +31,14 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
+}
+
+dependencies {
+    // 提供以下依赖的API给TvBox和插件使用
+    api(libs.jsoup)
+    api(libs.ktx.serialization)
+    api(libs.retrofit2)
+    api(libs.retrofit2.ktx.serialization)
+    api(libs.okhttp3.logging)
+    api(libs.timber)
 }

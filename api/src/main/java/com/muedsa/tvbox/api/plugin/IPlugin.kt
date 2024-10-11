@@ -4,10 +4,12 @@ import com.muedsa.tvbox.api.service.IMainScreenService
 import com.muedsa.tvbox.api.service.IMediaDetailService
 import com.muedsa.tvbox.api.service.IMediaSearchService
 
-interface IPlugin {
-    fun getMainScreenService(): IMainScreenService
+abstract class IPlugin(var tvBoxOptions: TvBoxOptions) {
+    abstract var options: PluginOptions
 
-    fun getMediaDetailService(): IMediaDetailService
+    abstract fun provideMainScreenService(): IMainScreenService
 
-    fun getMediaSearchService(): IMediaSearchService
+    abstract fun provideMediaDetailService(): IMediaDetailService
+
+    abstract fun provideMediaSearchService(): IMediaSearchService
 }
