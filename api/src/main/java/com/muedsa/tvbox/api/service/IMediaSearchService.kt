@@ -1,8 +1,8 @@
 package com.muedsa.tvbox.api.service
 
-import com.muedsa.tvbox.api.data.MediaCard
+import com.muedsa.tvbox.api.data.MediaCardRow
 
 interface IMediaSearchService {
 
-    suspend fun searchData(query: String) : List<MediaCard>
+    suspend fun searchMedias(query: String) : MediaCardRow
 }
