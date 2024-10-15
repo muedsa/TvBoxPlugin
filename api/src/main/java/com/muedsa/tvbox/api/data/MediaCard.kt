@@ -7,7 +7,7 @@ open class MediaCard(
     val subTitle: String? = null,
     val coverImageUrl: String = "",
     // val coverImageHttpHeaders: Map<String, String>? = null,
-    val backgroundColor: Int = 0
+    val backgroundColor: Long = 0x00_00_00_00 // argb
 ) : MediaBase(
     id = id,
     title = title,
