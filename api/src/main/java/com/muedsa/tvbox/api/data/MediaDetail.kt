@@ -9,7 +9,8 @@ open class MediaDetail(
     val backgroundImageUrl: String,
     // val backgroundImageHttpHeaders: Map<String, String>? = null,
     val playSourceList: List<MediaPlaySource>,
-    val favoritedMediaCard: SavedMediaCard
+    val favoritedMediaCard: SavedMediaCard,
+    val rows: List<MediaCardRow> = emptyList()
 ) : MediaBase(
     id = id,
     title = title,
