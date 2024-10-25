@@ -42,6 +42,8 @@ dependencies {
     val okhttp3LoggingVersion = "4.12.0"
     val timberVersion = "5.0.1"
     val datastoreVersion = "1.1.1"
+    val junitVersion = "4.13.2"
+    val kotlinxCoroutinesTestVersion = "1.9.0"
 
     api("org.jsoup:jsoup:$jsoupVersion")
     api("org.jetbrains.kotlinx:kotlinx-serialization-json:$ktxJsonVersion")
@@ -50,4 +52,6 @@ dependencies {
     api("com.squareup.okhttp3:logging-interceptor:$okhttp3LoggingVersion")
     api("com.jakewharton.timber:timber:$timberVersion")
     compileOnlyApi("androidx.datastore:datastore-preferences:$datastoreVersion")
+    testImplementation("junit:junit:$junitVersion")
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesTestVersion")
 }
