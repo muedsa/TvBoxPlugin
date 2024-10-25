@@ -7,4 +7,6 @@ interface IPluginPerfStore {
     suspend fun <T> getOrDefault(key: PluginPerfKey<T>, default: T): T
 
     suspend fun <T> update(key: PluginPerfKey<T>, value: T)
+
+    suspend fun filter(predicate: (String) -> Boolean): Map<String, Any>
 }
