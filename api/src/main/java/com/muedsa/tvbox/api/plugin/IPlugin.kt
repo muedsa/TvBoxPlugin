@@ -9,6 +9,8 @@ abstract class IPlugin(var tvBoxContext: TvBoxContext) {
 
     abstract suspend fun onInit()
 
+    abstract suspend fun onLaunched()
+
     abstract fun provideMainScreenService(): IMainScreenService
 
     abstract fun provideMediaDetailService(): IMediaDetailService
