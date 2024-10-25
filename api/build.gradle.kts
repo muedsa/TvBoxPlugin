@@ -41,6 +41,7 @@ dependencies {
     val retrofitKtxSerialization = "1.0.0"
     val okhttp3LoggingVersion = "4.12.0"
     val timberVersion = "5.0.1"
+    val datastoreVersion = "1.1.1"
 
     api("org.jsoup:jsoup:$jsoupVersion")
     api("org.jetbrains.kotlinx:kotlinx-serialization-json:$ktxJsonVersion")
@@ -48,4 +49,5 @@ dependencies {
     api("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitKtxSerialization")
     api("com.squareup.okhttp3:logging-interceptor:$okhttp3LoggingVersion")
     api("com.jakewharton.timber:timber:$timberVersion")
+    compileOnlyApi("androidx.datastore:datastore-preferences:$datastoreVersion")
 }
