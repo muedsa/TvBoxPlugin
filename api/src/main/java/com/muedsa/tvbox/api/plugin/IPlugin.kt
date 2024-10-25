@@ -7,6 +7,8 @@ import com.muedsa.tvbox.api.service.IMediaSearchService
 abstract class IPlugin(var tvBoxContext: TvBoxContext) {
     abstract var options: PluginOptions
 
+    abstract fun onInit()
+
     abstract fun provideMainScreenService(): IMainScreenService
 
     abstract fun provideMediaDetailService(): IMediaDetailService
