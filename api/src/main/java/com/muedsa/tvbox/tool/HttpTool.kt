@@ -59,4 +59,5 @@ fun Connection.feignChrome(referrer: String? = null, cookieStore: CookieStore? =
         .header("Sec-Ch-Ua", "\"Chromium\";v=\"130\", \"Google Chrome\";v=\"130\", \"Not?A_Brand\";v=\"99\"")
         .header("Sec-Ch-Ua-Platform", "\"Windows\"")
         .header("Upgrade-Insecure-Requests", "1")
+        .header("Connection", "close")
 }
