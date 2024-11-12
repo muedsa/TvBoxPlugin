@@ -85,8 +85,8 @@ fun Connection.feignChrome(referrer: String? = null, cookieStore: CookieStore? =
         .header("Connection", "close")
 }
 
-fun Jsoup.createRequest(url: String): Request.Builder =
-    Request.Builder().url(url)
+fun String.createRequest(): Request.Builder =
+    Request.Builder().url(this)
 
 fun Request.Builder.feignChrome(referer: String? = null) =
     header("User-Agent", ChromeUserAgent)
