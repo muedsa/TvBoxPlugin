@@ -85,7 +85,7 @@ fun Connection.feignChrome(referrer: String? = null, cookieStore: CookieStore? =
         .header("Connection", "close")
 }
 
-fun String.createRequest(): Request.Builder =
+fun String.toRequestBuild(): Request.Builder =
     Request.Builder().url(this)
 
 fun Request.Builder.feignChrome(referer: String? = null) =
@@ -104,6 +104,9 @@ fun Request.Builder.feignChrome(referer: String? = null) =
 
 fun Request.Builder.get(okHttpClient: OkHttpClient): Response =
     okHttpClient.newCall(get().build()).execute()
+
+fun Request.Builder.post(body: okhttp3.RequestBody, okHttpClient: OkHttpClient): Response =
+    okHttpClient.newCall(post(body).build()).execute()
 
 fun Response.stringBody(): String =
     body?.string() ?: ""
