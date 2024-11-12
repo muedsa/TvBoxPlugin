@@ -23,7 +23,7 @@ fun createOkHttpClient(
         .cookieJar(cookieJar)
         .apply {
             if (debug) {
-                addInterceptor(HttpLoggingInterceptor()
+                addNetworkInterceptor(HttpLoggingInterceptor()
                     .also { it.level = HttpLoggingInterceptor.Level.BODY })
             }
         }
