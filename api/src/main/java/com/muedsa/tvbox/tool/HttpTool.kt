@@ -37,6 +37,19 @@ fun createOkHttpClient(
 fun <T> createJsonRetrofit(
     baseUrl: String,
     service: Class<T>,
+    okHttpClient: OkHttpClient
+): T {
+    return Retrofit.Builder()
+        .baseUrl(baseUrl)
+        .addConverterFactory(LenientJson.asConverterFactory("application/json".toMediaType()))
+        .client(okHttpClient)
+        .build()
+        .create(service)
+}
+
+fun <T> createJsonRetrofit(
+    baseUrl: String,
+    service: Class<T>,
     debug: Boolean = false,
     cookieJar: CookieJar = CookieJar.NO_COOKIES
 ): T {
