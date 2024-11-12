@@ -1,11 +1,16 @@
 package com.muedsa.tvbox.tool
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import okhttp3.CacheControl
 import okhttp3.CookieJar
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import org.jsoup.Connection
+import org.jsoup.Jsoup
+import org.jsoup.nodes.Document
 import retrofit2.Retrofit
 import java.net.CookieStore
 
@@ -43,6 +48,11 @@ fun <T> createJsonRetrofit(
         .create(service)
 }
 
+@Deprecated(
+    "Jsoup的HttpConnection发送cookieStore中的cookie会有一些问题，" +
+            "不推荐直接使用jsoup自带的http请求工具。" +
+            "建议用Okhttp3请求数据 Jsoup仅解析数据"
+)
 fun Connection.feignChrome(referrer: String? = null, cookieStore: CookieStore? = null): Connection {
     return userAgent(ChromeUserAgent)
         .also {
@@ -61,3 +71,29 @@ fun Connection.feignChrome(referrer: String? = null, cookieStore: CookieStore? =
         .header("Upgrade-Insecure-Requests", "1")
         .header("Connection", "close")
 }
+
+fun Jsoup.createRequest(url: String): Request.Builder =
+    Request.Builder().url(url)
+
+fun Request.Builder.feignChrome(referer: String? = null) =
+    header("User-Agent", ChromeUserAgent)
+        .apply {
+            referer?.let { header("Referer", referer) }
+        }
+        .cacheControl(CacheControl.FORCE_NETWORK)
+        .header("Priority", "u=0, i")
+        .header(
+            "Sec-Ch-Ua",
+            "\"Chromium\";v=\"130\", \"Google Chrome\";v=\"130\", \"Not?A_Brand\";v=\"99\""
+        )
+        .header("Sec-Ch-Ua-Platform", "\"Windows\"")
+        .header("Upgrade-Insecure-Requests", "1")
+
+fun Request.Builder.get(okHttpClient: OkHttpClient): Response =
+    okHttpClient.newCall(get().build()).execute()
+
+fun Response.stringBody(): String =
+    body?.string() ?: ""
+
+fun Response.parseHtml(): Document =
+    Jsoup.parse(stringBody())
