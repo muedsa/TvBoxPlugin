@@ -12,7 +12,7 @@
             android:value="com.muedsa.tvbox" />
         <meta-data
             android:name="tv_box_plugin_api_version"
-            android:value="5" />
+            android:value="6" />
     </application>
 
 </manifest>
