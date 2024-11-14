@@ -22,7 +22,8 @@ const val ChromeUserAgent =
 
 fun createOkHttpClient(
     debug: Boolean = false,
-    cookieJar: CookieJar = CookieJar.NO_COOKIES
+    cookieJar: CookieJar = CookieJar.NO_COOKIES,
+    builderApply: OkHttpClient.Builder.() -> Unit = {}
 ): OkHttpClient =
     OkHttpClient.Builder()
         .cookieJar(cookieJar)
@@ -31,6 +32,7 @@ fun createOkHttpClient(
                 addNetworkInterceptor(HttpLoggingInterceptor()
                     .also { it.level = HttpLoggingInterceptor.Level.BODY })
             }
+            builderApply()
         }
         .build()
 
