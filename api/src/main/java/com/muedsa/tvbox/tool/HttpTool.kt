@@ -109,14 +109,12 @@ fun Request.Builder.post(body: okhttp3.RequestBody, okHttpClient: OkHttpClient):
     okHttpClient.newCall(post(body).build()).execute()
 
 fun Response.checkSuccess(
-    checker: (Boolean, Int) -> Unit = { isSuccessful, code ->
-        if (!isSuccessful) {
-            throw RuntimeException("请求失败,HTTP STATUS $code")
+    checker: (Response) -> Unit = { resp ->
+        if (!resp.isSuccessful) {
+            throw RuntimeException("请求失败[status:${resp.code}, url=${resp.request.url}]")
         }
     }
-) {
-    checker(this.isSuccessful, this.code)
-}
+): Response = this.also { checker(it) }
 
 fun Response.stringBody(): String =
     body?.string() ?: ""
