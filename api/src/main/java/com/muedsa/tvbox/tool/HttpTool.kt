@@ -23,6 +23,7 @@ const val ChromeUserAgent =
 fun createOkHttpClient(
     debug: Boolean = false,
     cookieJar: CookieJar = CookieJar.NO_COOKIES,
+    onlyIpv4: Boolean = true,
     builderApply: OkHttpClient.Builder.() -> Unit = {}
 ): OkHttpClient =
     OkHttpClient.Builder()
@@ -31,6 +32,9 @@ fun createOkHttpClient(
             if (debug) {
                 addNetworkInterceptor(HttpLoggingInterceptor()
                     .also { it.level = HttpLoggingInterceptor.Level.BODY })
+            }
+            if (onlyIpv4) {
+                dns(OnlyIPv4Dns)
             }
             builderApply()
         }
