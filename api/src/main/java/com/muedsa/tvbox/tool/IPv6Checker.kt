@@ -5,7 +5,7 @@ import java.net.InetSocketAddress
 import java.net.NetworkInterface
 import java.net.Socket
 
-object NetworkUtils {
+object IPv6Checker {
 
     private val HOSTS = listOf(
         // Google DNS
