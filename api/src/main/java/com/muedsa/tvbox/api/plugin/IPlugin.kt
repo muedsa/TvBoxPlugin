@@ -1,6 +1,7 @@
 package com.muedsa.tvbox.api.plugin
 
 import com.muedsa.tvbox.api.service.IMainScreenService
+import com.muedsa.tvbox.api.service.IMediaCatalogService
 import com.muedsa.tvbox.api.service.IMediaDetailService
 import com.muedsa.tvbox.api.service.IMediaSearchService
 
@@ -16,4 +17,6 @@ abstract class IPlugin(var tvBoxContext: TvBoxContext) {
     abstract fun provideMediaDetailService(): IMediaDetailService
 
     abstract fun provideMediaSearchService(): IMediaSearchService
+
+    abstract fun provideMediaCatalogService(): IMediaCatalogService
 }
