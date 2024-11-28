@@ -60,16 +60,22 @@ data class SerializableCookie(
             hostOnly = cookie.hostOnly,
         )
 
-        fun from(cookie: HttpCookie): SerializableCookie = SerializableCookie(
-            name = cookie.name,
-            value = cookie.value,
-            expiresAt = if (cookie.maxAge == -1L) 253402300799999L else System.currentTimeMillis() + cookie.maxAge * 1000,
-            domain = cookie.domain,
-            path = cookie.path,
-            secure = cookie.secure,
-            httpOnly = cookie.isHttpOnly,
-            persistent = true,
-            hostOnly = false,
-        )
+        fun from(cookie: HttpCookie): SerializableCookie {
+            val hostOnly = cookie.domain.startsWith(".")
+            val domain = if (hostOnly) {
+                cookie.domain.removePrefix(".")
+            } else cookie.domain
+            return SerializableCookie(
+                name = cookie.name,
+                value = cookie.value,
+                expiresAt = if (cookie.maxAge == -1L) 253402300799999L else System.currentTimeMillis() + cookie.maxAge * 1000,
+                domain = domain,
+                path = cookie.path,
+                secure = cookie.secure,
+                httpOnly = cookie.isHttpOnly,
+                persistent = true,
+                hostOnly = hostOnly,
+            )
+        }
     }
 }
