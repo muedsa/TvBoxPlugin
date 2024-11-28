@@ -9,13 +9,18 @@ data class SerializableCookie(
     val name: String,
     val value: String,
     val expiresAt: Long,
-    val domain: String,
+    val domain: String, // 对于.example.com这样的domain=example.com,hostOnly=true
     val path: String,
     val secure: Boolean,
     val httpOnly: Boolean,
     val persistent: Boolean,
     val hostOnly: Boolean
 ) {
+
+    init {
+        check(!domain.startsWith(".")) { "please domain=${domain.removePrefix(".")}, hostOnly=true" }
+    }
+
     fun toCookie(): Cookie {
         val builder = Cookie.Builder()
             .name(name)
