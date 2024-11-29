@@ -9,7 +9,7 @@ data class SerializableCookie(
     val name: String,
     val value: String,
     val expiresAt: Long,
-    val domain: String, // 对于.example.com这样的domain=example.com,hostOnly=true
+    val domain: String, // 对于.example.com这样的domain=example.com,hostOnly=false
     val path: String,
     val secure: Boolean,
     val httpOnly: Boolean,
@@ -18,7 +18,7 @@ data class SerializableCookie(
 ) {
 
     init {
-        check(!domain.startsWith(".")) { "please domain=${domain.removePrefix(".")}, hostOnly=true" }
+        check(!domain.startsWith(".")) { "please domain=${domain.removePrefix(".")}, hostOnly=false" }
     }
 
     fun toCookie(): Cookie {
@@ -45,7 +45,7 @@ data class SerializableCookie(
             } else {
                 it.maxAge = (expiresAt - System.currentTimeMillis()) / 1000
             }
-            it.domain = domain
+            it.domain = if (hostOnly) domain else ".$domain"
             it.path = path
             it.secure = secure
             it.isHttpOnly = httpOnly
@@ -66,8 +66,8 @@ data class SerializableCookie(
         )
 
         fun from(cookie: HttpCookie): SerializableCookie {
-            val hostOnly = cookie.domain.startsWith(".")
-            val domain = if (hostOnly) {
+            val hostOnly = !cookie.domain.startsWith(".")
+            val domain = if (!hostOnly) {
                 cookie.domain.removePrefix(".")
             } else cookie.domain
             return SerializableCookie(
@@ -78,7 +78,7 @@ data class SerializableCookie(
                 path = cookie.path,
                 secure = cookie.secure,
                 httpOnly = cookie.isHttpOnly,
-                persistent = true,
+                persistent = cookie.maxAge != -1L,
                 hostOnly = hostOnly,
             )
         }
