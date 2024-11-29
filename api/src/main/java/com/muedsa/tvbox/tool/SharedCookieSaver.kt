@@ -5,8 +5,6 @@ import com.muedsa.tvbox.api.store.PluginPerfKey
 import com.muedsa.tvbox.api.store.stringPluginPerfKey
 import kotlinx.coroutines.runBlocking
 import kotlinx.serialization.encodeToString
-import okhttp3.Cookie
-import java.net.HttpCookie
 import java.util.TreeSet
 
 open class SharedCookieSaver(
@@ -95,7 +93,7 @@ open class SharedCookieSaver(
         private fun createCookieKey(cookie: SerializableCookie): PluginPerfKey<String> {
             return createCookieKey(
                 name = cookie.name,
-                domain = cookie.domain,
+                domain = if(cookie.hostOnly) cookie.domain else ".${cookie.domain}",
                 path = cookie.path,
                 secure = cookie.secure
             )
