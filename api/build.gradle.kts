@@ -35,20 +35,25 @@ android {
 
 dependencies {
     // 提供以下依赖的API给TvBox和插件使用
+    val protobufVersion = "4.29.0"
     val jsoupVersion = "1.18.3"
     val ktxJsonVersion = "1.7.3"
     val retrofitVersion = "2.11.0"
-    val retrofitKtxSerialization = "1.0.0"
+    val retrofitKtxSerialization = "2.11.0"
+    val retrofitProtobuf = "2.11.0"
     val okhttp3LoggingVersion = "4.12.0"
     val timberVersion = "5.0.1"
     val datastoreVersion = "1.1.1"
     val junitVersion = "4.13.2"
     val kotlinxCoroutinesTestVersion = "1.9.0"
 
+    api("com.google.protobuf:protobuf-java-lite:$protobufVersion")
+    api("com.google.protobuf:protobuf-kotlin-lite:$protobufVersion")
     api("org.jsoup:jsoup:$jsoupVersion")
     api("org.jetbrains.kotlinx:kotlinx-serialization-json:$ktxJsonVersion")
     api("com.squareup.retrofit2:retrofit:$retrofitVersion")
-    api("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:$retrofitKtxSerialization")
+    api("com.squareup.retrofit2:converter-kotlinx-serialization:$retrofitKtxSerialization")
+    api("com.squareup.retrofit2:converter-protobuf:$retrofitProtobuf")
     api("com.squareup.okhttp3:logging-interceptor:$okhttp3LoggingVersion")
     api("com.jakewharton.timber:timber:$timberVersion")
     compileOnlyApi("androidx.datastore:datastore-preferences:$datastoreVersion")

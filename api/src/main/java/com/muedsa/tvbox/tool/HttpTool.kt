@@ -1,6 +1,5 @@
 package com.muedsa.tvbox.tool
 
-import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import okhttp3.CacheControl
 import okhttp3.CookieJar
 import okhttp3.MediaType.Companion.toMediaType
@@ -12,6 +11,7 @@ import org.jsoup.Connection
 import org.jsoup.Jsoup
 import org.jsoup.nodes.Document
 import retrofit2.Retrofit
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import java.net.CookieStore
 
 const val ChromeUserAgent =
