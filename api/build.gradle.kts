@@ -53,7 +53,9 @@ dependencies {
     api("org.jetbrains.kotlinx:kotlinx-serialization-json:$ktxJsonVersion")
     api("com.squareup.retrofit2:retrofit:$retrofitVersion")
     api("com.squareup.retrofit2:converter-kotlinx-serialization:$retrofitKtxSerialization")
-    api("com.squareup.retrofit2:converter-protobuf:$retrofitProtobuf")
+    api("com.squareup.retrofit2:converter-protobuf:$retrofitProtobuf") {
+        exclude("com.google.protobuf")
+    }
     api("com.squareup.okhttp3:logging-interceptor:$okhttp3LoggingVersion")
     api("com.jakewharton.timber:timber:$timberVersion")
     compileOnlyApi("androidx.datastore:datastore-preferences:$datastoreVersion")
