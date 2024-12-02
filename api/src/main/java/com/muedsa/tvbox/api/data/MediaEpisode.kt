@@ -1,5 +1,8 @@
 package com.muedsa.tvbox.api.data
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 open class MediaEpisode(
     val id: String,
     val name: String,

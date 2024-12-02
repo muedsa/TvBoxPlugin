@@ -12,6 +12,8 @@ open class MediaDetail(
     val favoritedMediaCard: SavedMediaCard? = null,
     val rows: List<MediaCardRow> = emptyList(),
     val disableEpisodeProgression: Boolean = false,
+    val enableCustomDanmakuList: Boolean = false,
+    val enableCustomDanmakuFlow: Boolean = false,
 ) : MediaBase(
     id = id,
     title = title,
