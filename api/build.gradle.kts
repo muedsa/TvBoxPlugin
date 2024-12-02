@@ -35,7 +35,7 @@ android {
 
 dependencies {
     // 提供以下依赖的API给TvBox和插件使用
-    val jsoupVersion = "1.18.2"
+    val jsoupVersion = "1.18.3"
     val ktxJsonVersion = "1.7.3"
     val retrofitVersion = "2.11.0"
     val retrofitKtxSerialization = "1.0.0"
