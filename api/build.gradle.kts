@@ -47,7 +47,7 @@ dependencies {
     val junitVersion = "4.13.2"
     val kotlinxCoroutinesTestVersion = "1.9.0"
 
-    api("com.google.protobuf:protobuf-java-lite:$protobufVersion")
+    api("com.google.protobuf:protobuf-javalite:$protobufVersion")
     api("com.google.protobuf:protobuf-kotlin-lite:$protobufVersion")
     api("org.jsoup:jsoup:$jsoupVersion")
     api("org.jetbrains.kotlinx:kotlinx-serialization-json:$ktxJsonVersion")
