@@ -42,6 +42,7 @@ dependencies {
     val retrofitKtxSerialization = "2.11.0"
     val retrofitProtobuf = "2.11.0"
     val okhttp3LoggingVersion = "4.12.0"
+    val okhttp3BrotliVersion = "4.12.0"
     val timberVersion = "5.0.1"
     val datastoreVersion = "1.1.1"
     val junitVersion = "4.13.2"
@@ -57,6 +58,7 @@ dependencies {
         exclude("com.google.protobuf")
     }
     api("com.squareup.okhttp3:logging-interceptor:$okhttp3LoggingVersion")
+    api("com.squareup.okhttp3:okhttp-brotli:$okhttp3BrotliVersion")
     api("com.jakewharton.timber:timber:$timberVersion")
     compileOnlyApi("androidx.datastore:datastore-preferences:$datastoreVersion")
     testImplementation("junit:junit:$junitVersion")

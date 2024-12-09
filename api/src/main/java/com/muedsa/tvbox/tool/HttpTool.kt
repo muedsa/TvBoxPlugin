@@ -6,6 +6,7 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
+import okhttp3.brotli.BrotliInterceptor
 import okhttp3.logging.HttpLoggingInterceptor
 import org.jsoup.Connection
 import org.jsoup.Jsoup
@@ -29,6 +30,7 @@ fun createOkHttpClient(
     OkHttpClient.Builder()
         .cookieJar(cookieJar)
         .apply {
+            addInterceptor(BrotliInterceptor)
             if (debug) {
                 addNetworkInterceptor(HttpLoggingInterceptor()
                     .also { it.level = HttpLoggingInterceptor.Level.BODY })
