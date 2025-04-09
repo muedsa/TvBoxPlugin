@@ -46,7 +46,7 @@ dependencies {
     val timberVersion = "5.0.1"
     val datastoreVersion = "1.1.4"
     val junitVersion = "4.13.2"
-    val kotlinxCoroutinesTestVersion = "1.10.1"
+    val kotlinxCoroutinesTestVersion = "1.10.2"
 
     api("com.google.protobuf:protobuf-javalite:$protobufVersion")
     api("com.google.protobuf:protobuf-kotlin-lite:$protobufVersion")
