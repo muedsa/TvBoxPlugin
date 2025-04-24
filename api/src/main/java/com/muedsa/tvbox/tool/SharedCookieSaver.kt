@@ -4,7 +4,6 @@ import com.muedsa.tvbox.api.store.IPluginPerfStore
 import com.muedsa.tvbox.api.store.PluginPerfKey
 import com.muedsa.tvbox.api.store.stringPluginPerfKey
 import kotlinx.coroutines.runBlocking
-import kotlinx.serialization.encodeToString
 import java.util.TreeSet
 
 open class SharedCookieSaver(
