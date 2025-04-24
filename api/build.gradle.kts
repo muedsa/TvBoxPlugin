@@ -44,7 +44,7 @@ dependencies {
     val okhttp3LoggingVersion = "4.12.0"
     val okhttp3BrotliVersion = "4.12.0"
     val timberVersion = "5.0.1"
-    val datastoreVersion = "1.1.4"
+    val datastoreVersion = "1.1.5"
     val junitVersion = "4.13.2"
     val kotlinxCoroutinesTestVersion = "1.10.2"
 
