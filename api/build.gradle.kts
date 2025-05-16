@@ -38,7 +38,7 @@ dependencies {
     val protobufVersion = "4.31.0"
     val jsoupVersion = "1.20.1"
     val ktxJsonVersion = "1.8.1"
-    val retrofitVersion = "2.11.0"
+    val retrofitVersion = "3.0.0"
     val retrofitKtxSerialization = "2.11.0"
     val retrofitProtobuf = "2.11.0"
     val okhttp3LoggingVersion = "4.12.0"
