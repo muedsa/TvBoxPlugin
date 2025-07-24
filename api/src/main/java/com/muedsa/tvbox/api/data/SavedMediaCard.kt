@@ -5,7 +5,7 @@ open class SavedMediaCard(
     title: String,
     detailUrl: String,
     coverImageUrl: String,
-    // val coverImageHttpHeaders: Map<String, String>? = null,
+    coverImageHttpHeaders: Map<String, List<String>>? = null,
     subTitle: String? = null,
     val cardWidth: Int,
     val cardHeight: Int,
@@ -14,6 +14,6 @@ open class SavedMediaCard(
     title = title,
     detailUrl = detailUrl,
     coverImageUrl = coverImageUrl,
-    // coverImageHttpHeaders = coverImageHttpHeaders,
+    coverImageHttpHeaders = coverImageHttpHeaders,
     subTitle = subTitle
 )

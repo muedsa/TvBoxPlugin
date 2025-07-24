@@ -7,7 +7,7 @@ open class MediaDetail(
     val subTitle: String? = null,
     val description: String? = null,
     val backgroundImageUrl: String,
-    // val backgroundImageHttpHeaders: Map<String, String>? = null,
+    val backgroundImageHttpHeaders: Map<String, List<String>>? = null,
     val playSourceList: List<MediaPlaySource>,
     val favoritedMediaCard: SavedMediaCard? = null,
     val rows: List<MediaCardRow> = emptyList(),
