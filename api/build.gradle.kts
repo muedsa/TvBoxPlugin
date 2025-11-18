@@ -44,7 +44,7 @@ dependencies {
     val retrofitVersion = "3.0.0"
     val retrofitKtxSerialization = "3.0.0"
     val retrofitProtobuf = "3.0.0"
-    val okhttp3LoggingVersion = "5.3.0"
+    val okhttp3LoggingVersion = "5.3.1"
     val okhttp3BrotliVersion = "5.3.1"
     val timberVersion = "5.0.1"
     val junitVersion = "4.13.2"
