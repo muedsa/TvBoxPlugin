@@ -24,7 +24,7 @@ jobs:
         run: ./gradlew :api:test :api:assemble
       - name: Upload a Build Artifact
         if: success()
-        uses: actions/upload-artifact@v5.0.0
+        uses: actions/upload-artifact@v6.0.0
         with:
           name: build-artifact
           path: |
