@@ -123,7 +123,7 @@ fun Response.checkSuccess(
 ): Response = this.also { checker(it) }
 
 fun Response.stringBody(): String =
-    body?.string() ?: ""
+    body.string()
 
 fun Response.parseHtml(): Document =
     Jsoup.parse(stringBody())
