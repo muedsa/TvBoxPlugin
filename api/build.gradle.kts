@@ -5,6 +5,9 @@ plugins {
     id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
 
+group = "com.muedsa.tvbox"
+version = "12.1.0"
+
 android {
     namespace = "com.muedsa.tvbox.api"
 
