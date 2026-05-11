@@ -52,7 +52,7 @@ dependencies {
     val okhttp3BrotliVersion = "5.3.2"
     val timberVersion = "5.0.1"
     val junitVersion = "4.13.2"
-    val kotlinxCoroutinesVersion = "1.10.2"
+    val kotlinxCoroutinesVersion = "1.11.0"
 
     api("com.google.protobuf:protobuf-javalite:$protobufVersion")
     api("com.google.protobuf:protobuf-kotlin-lite:$protobufVersion")
