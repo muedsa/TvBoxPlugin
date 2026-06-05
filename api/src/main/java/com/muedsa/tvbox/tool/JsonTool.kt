@@ -6,4 +6,6 @@ val LenientJson = Json {
     ignoreUnknownKeys = true
     isLenient = true
     encodeDefaults = true
+    explicitNulls = false
+    coerceInputValues = true
 }
