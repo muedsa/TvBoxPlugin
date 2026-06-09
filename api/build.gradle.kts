@@ -49,7 +49,7 @@ dependencies {
     val retrofitKtxSerialization = "3.0.0"
     val retrofitProtobuf = "3.0.0"
     val okhttp3LoggingVersion = "5.3.2"
-    val okhttp3BrotliVersion = "5.3.2"
+    val okhttp3BrotliVersion = "5.4.0"
     val timberVersion = "5.0.1"
     val junitVersion = "4.13.2"
     val kotlinxCoroutinesVersion = "1.11.0"
