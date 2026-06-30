@@ -1,6 +1,5 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
     id("org.jetbrains.kotlin.plugin.serialization")
     id("org.jetbrains.kotlinx.binary-compatibility-validator")
 }
@@ -68,7 +67,7 @@ dependencies {
     api("com.squareup.okhttp3:logging-interceptor:$okhttp3LoggingVersion")
     api("com.squareup.okhttp3:okhttp-brotli:$okhttp3BrotliVersion")
     api("com.jakewharton.timber:timber:$timberVersion")
-    compileOnlyApi("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
+    api("org.jetbrains.kotlinx:kotlinx-coroutines-core:$kotlinxCoroutinesVersion")
     testImplementation("junit:junit:$junitVersion")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$kotlinxCoroutinesVersion")
 }
