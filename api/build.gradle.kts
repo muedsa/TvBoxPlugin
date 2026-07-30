@@ -52,7 +52,7 @@ dependencies {
     val timberVersion = "5.0.1"
     val junitVersion = "4.13.2"
     val kotlinxCoroutinesVersion = "1.11.0"
-    val jspecifyVersion = "1.0.0"
+    val jspecifyVersion = "1.0.1"
 
     api("com.google.protobuf:protobuf-javalite:$protobufVersion")
     api("com.google.protobuf:protobuf-kotlin-lite:$protobufVersion")
