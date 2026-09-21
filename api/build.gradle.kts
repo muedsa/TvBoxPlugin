@@ -41,7 +41,7 @@ kotlin {
 
 dependencies {
     // 提供以下依赖的API给TvBox和插件使用
-    val protobufVersion = "4.36.1"
+    val protobufVersion = "4.36.2"
     val jsoupVersion = "1.23.2"
     val ktxJsonVersion = "1.11.0"
     val retrofitVersion = "3.0.0"
